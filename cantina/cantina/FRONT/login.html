@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar | Cantina</title>
+  <meta name="description" content="Entre ou crie sua conta para pedir na cantina.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect y='7' width='32' height='18' rx='4' fill='%23ffd23f'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="topo"></header>
+
+  <main class="pagina">
+    <div class="login-caixa">
+      <div class="pagina-cabeca"><h1>Sua conta</h1></div>
+
+      <div class="cartao">
+        <p class="aviso-topo" id="aviso-topo" hidden>Entre ou crie uma conta para montar seu pedido.</p>
+
+        <div class="abas" role="tablist" aria-label="Entrar ou cadastrar">
+          <button class="aba" role="tab" id="aba-entrar" aria-selected="true" aria-controls="painel-entrar" type="button">Entrar</button>
+          <button class="aba" role="tab" id="aba-cadastrar" aria-selected="false" aria-controls="painel-cadastrar" type="button">Criar conta</button>
+        </div>
+
+        <form id="painel-entrar" class="form-pilha" role="tabpanel" aria-labelledby="aba-entrar" novalidate>
+          <div class="campo">
+            <label for="entrar-email">E-mail</label>
+            <input type="email" id="entrar-email" autocomplete="email" required>
+          </div>
+          <div class="campo">
+            <label for="entrar-senha">Senha</label>
+            <input type="password" id="entrar-senha" autocomplete="current-password" required>
+          </div>
+          <p class="mensagem-erro" id="erro-entrar" role="alert" hidden></p>
+          <button class="botao" type="submit">Entrar</button>
+        </form>
+
+        <form id="painel-cadastrar" class="form-pilha" role="tabpanel" aria-labelledby="aba-cadastrar" hidden novalidate>
+          <div class="campo">
+            <label for="cad-nome">Nome completo</label>
+            <input type="text" id="cad-nome" autocomplete="name" maxlength="80" required>
+          </div>
+          <div class="campo">
+            <label for="cad-email">E-mail</label>
+            <input type="email" id="cad-email" autocomplete="email" required>
+          </div>
+          <div class="form-dupla">
+            <div class="campo">
+              <label for="cad-tipo">Você é</label>
+              <select id="cad-tipo">
+                <option value="aluno">Aluno</option>
+                <option value="professor">Professor</option>
+                <option value="funcionario">Funcionário</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label for="cad-turma">Turma (opcional)</label>
+              <input type="text" id="cad-turma" maxlength="20" placeholder="Ex.: 2º DSN">
+            </div>
+          </div>
+          <div class="campo">
+            <label for="cad-telefone">Telefone (opcional)</label>
+            <input type="tel" id="cad-telefone" autocomplete="tel" maxlength="20">
+          </div>
+          <div class="campo">
+            <label for="cad-senha">Senha</label>
+            <input type="password" id="cad-senha" autocomplete="new-password" minlength="6" required>
+            <span class="dica">Mínimo de 6 caracteres.</span>
+          </div>
+          <p class="mensagem-erro" id="erro-cadastrar" role="alert" hidden></p>
+          <button class="botao" type="submit">Criar conta</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer id="rodape"></footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

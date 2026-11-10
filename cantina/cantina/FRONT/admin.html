@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administração | Cantina</title>
+  <meta name="description" content="Painel da cantina: pedidos, produtos e resumo.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect y='7' width='32' height='18' rx='4' fill='%23ffd23f'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="topo"></header>
+
+  <main class="pagina" id="area-admin">
+    <div class="pagina-cabeca">
+      <h1>Administração</h1>
+    </div>
+
+    <div class="admin-abas" role="tablist" aria-label="Seções">
+      <button class="aba" role="tab" id="aba-pedidos" aria-selected="true" aria-controls="secao-pedidos" type="button">Pedidos</button>
+      <button class="aba" role="tab" id="aba-produtos" aria-selected="false" aria-controls="secao-produtos" type="button">Produtos</button>
+      <button class="aba" role="tab" id="aba-resumo" aria-selected="false" aria-controls="secao-resumo" type="button">Resumo</button>
+    </div>
+
+    <section id="secao-pedidos" role="tabpanel" aria-labelledby="aba-pedidos">
+      <div class="colunas" id="colunas-pedidos"></div>
+      <details class="encerrados">
+        <summary>Encerrados hoje</summary>
+        <div id="pedidos-encerrados"></div>
+      </details>
+    </section>
+
+    <section id="secao-produtos" role="tabpanel" aria-labelledby="aba-produtos" hidden>
+      <div class="barra-acoes">
+        <p class="dica">Produtos desativados não aparecem no cardápio.</p>
+        <button class="botao" type="button" id="btn-novo-produto">Novo produto</button>
+      </div>
+      <div class="tabela-rolagem" id="tabela-produtos"></div>
+    </section>
+
+    <section id="secao-resumo" role="tabpanel" aria-labelledby="aba-resumo" hidden>
+      <div id="conteudo-resumo"></div>
+    </section>
+
+    <dialog id="dialogo-produto" aria-labelledby="titulo-dialogo">
+      <form id="form-produto" method="dialog" novalidate>
+        <h2 id="titulo-dialogo">Novo produto</h2>
+        <div class="campo">
+          <label for="p-nome">Nome</label>
+          <input type="text" id="p-nome" maxlength="80" required>
+        </div>
+        <div class="form-dupla">
+          <div class="campo">
+            <label for="p-categoria">Categoria</label>
+            <select id="p-categoria"></select>
+          </div>
+          <div class="campo">
+            <label for="p-preco">Preço (R$)</label>
+            <input type="number" id="p-preco" min="0" step="0.01" required>
+          </div>
+        </div>
+        <div class="form-dupla">
+          <div class="campo">
+            <label for="p-estoque">Estoque</label>
+            <input type="number" id="p-estoque" min="0" step="1" value="0" required>
+          </div>
+          <div class="campo">
+            <label for="p-imagem">Imagem (opcional)</label>
+            <input type="file" id="p-imagem" accept="image/png,image/jpeg,image/webp,image/gif">
+          </div>
+        </div>
+        <div class="campo">
+          <label for="p-descricao">Descrição</label>
+          <textarea id="p-descricao" maxlength="200"></textarea>
+        </div>
+        <label class="opcao"><input type="checkbox" id="p-ativo" checked> Mostrar no cardápio</label>
+        <p class="mensagem-erro" id="erro-produto" role="alert" hidden></p>
+        <div class="dialogo-acoes">
+          <button class="botao botao-fantasma" type="button" id="btn-cancelar-produto">Cancelar</button>
+          <button class="botao" type="submit">Salvar produto</button>
+        </div>
+      </form>
+    </dialog>
+  </main>
+
+  <footer id="rodape"></footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

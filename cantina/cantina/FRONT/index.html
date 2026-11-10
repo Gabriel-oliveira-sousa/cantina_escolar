@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cantina</title>
+  <meta name="description" content="Peça pelo site e retire no balcão sem fila.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect y='7' width='32' height='18' rx='4' fill='%23ffd23f'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="topo"></header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-texto">
+        <h1>Peça pelo site e retire no balcão sem fila.</h1>
+        <p>Escolha o que quer comer no intervalo, envie o pedido e retire quando a sua senha aparecer como pronta.</p>
+        <div class="hero-acoes">
+          <a class="botao" href="cardapio.html">Ver cardápio</a>
+          <a class="botao botao-fantasma" href="pedidos.html">Acompanhar meu pedido</a>
+        </div>
+      </div>
+
+      <aside class="quadro" aria-labelledby="titulo-quadro">
+        <h2 id="titulo-quadro">Hoje no balcão</h2>
+        <ul id="quadro-itens"><li class="vazio">Carregando cardápio...</li></ul>
+        <p class="quadro-rodape">Preços e estoque em tempo real.</p>
+      </aside>
+    </section>
+
+    <section class="painel" aria-labelledby="titulo-painel">
+      <h2 id="titulo-painel">Painel de senhas</h2>
+      <div class="painel-grade">
+        <div class="painel-bloco">
+          <h3>Em preparo</h3>
+          <div class="senhas" id="senhas-preparando"><span class="vazio">Carregando...</span></div>
+        </div>
+        <div class="painel-bloco painel-pronto">
+          <h3>Pode retirar no balcão</h3>
+          <div class="senhas" id="senhas-prontas"><span class="vazio">Carregando...</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="passos" aria-labelledby="titulo-passos">
+      <h2 id="titulo-passos">Como funciona</h2>
+      <ol>
+        <li><h3>Escolha</h3><p>Monte o carrinho pelo cardápio. Itens esgotados aparecem avisados.</p></li>
+        <li><h3>Envie o pedido</h3><p>Escolha como vai pagar. O pagamento é feito na retirada.</p></li>
+        <li><h3>Acompanhe</h3><p>Veja se o pedido está recebido, em preparo ou pronto.</p></li>
+        <li><h3>Retire</h3><p>Quando sua senha estiver pronta, mostre-a no balcão.</p></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer id="rodape"></footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
